@@ -12,5 +12,5 @@ NOTES: Don't create new string.
 */
 
 char removeSpaces(char *str) {
-	
+	return '\0';
 }
