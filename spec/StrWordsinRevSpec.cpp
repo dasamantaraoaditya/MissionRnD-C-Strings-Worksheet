@@ -6,7 +6,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace spec
 {
-	TEST_CLASS(NumbertoStrSpec)
+	TEST_CLASS(StrWordsinRevSpec)
 	{
 	public:
 
