@@ -12,5 +12,25 @@ NOTES:
 */
 
 char KthIndexFromEnd(char *str, int K) {
-	return '\0';
+	int i, len = 0;
+
+	if (str == '\0' || K<0)
+		return '\0';
+
+	for (i = 0;; i += 2)
+	{
+		if (str[i] == '\0')
+		{
+			len = i;
+			break;
+		}
+		if (str[i + 1] == '\0')
+		{
+			len = i - 1;
+			break;
+		}
+		if (len < K)
+			return '\0';
+	}
+	return str[len - K - 1];
 }

@@ -1,5 +1,5 @@
 /*
-OVERVIEW: Given a float number ,Convert it into a string 
+OVERVIEW: Given a float number ,Convert it into a string
 
 INPUTS: A Float,Final string ,How many digits after decimal has to be displayed .
 Its zero for integers.
@@ -18,8 +18,49 @@ NOTES: Don't create new string.
 */
 
 #include <stdio.h>
+#include<stdlib.h>
+char * reverse(char *str, int end);
+void number_to_str(float number, char *str, int afterdecimal){
 
+	int i = 0, num, aft_dec = afterdecimal, minus = 0;
 
-void number_to_str(float number, char *str,int afterdecimal){
-	
+	while (aft_dec--)
+		number *= 10;
+	aft_dec++;
+
+	num = number;
+	if (num<0)
+	{
+		minus = 1;
+		num *= -1;
+	}
+	while (num)
+	{
+		if (aft_dec == afterdecimal&&afterdecimal)
+		{
+			str[i++] = '.';
+		}
+		aft_dec++;
+		str[i++] = (num % 10) + '0';
+		num /= 10;
+	}
+	if (minus)
+		str[i++] = '-';
+	str[i] = '\0';
+
+	str = reverse(str, i);
+}
+char * reverse(char *str, int end)
+{
+	int i = 0, j = end - 1;
+	char temp;
+	while (i<j)
+	{
+		temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
+		i++;
+		j--;
+	}
+	return str;
 }
